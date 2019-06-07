@@ -14,9 +14,9 @@
                     <span class="ml-1 text-white">{{Auth::user()->name}} <i class="mdi mdi-chevron-down"></i></span></a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown"><!-- item-->
                     <!-- item--> <a href="{{url('/main/profile')}}" class="dropdown-item notify-item"><i
-                                class="fa fa-fw fa-user"></i> <span>My Profile</span> </a><!-- item--> <a
-                            href="{{url('/main/password')}}" class="dropdown-item notify-item"><i
-                                class="fa fa-fw fa-gear"></i> <span>Change Password</span> </a><!-- item-->
+                            class="fa fa-fw fa-user"></i> <span>My Profile</span> </a><!-- item--> <a
+                        href="{{url('/main/password')}}" class="dropdown-item notify-item"><i
+                            class="fa fa-fw fa-gear"></i> <span>Change Password</span> </a><!-- item-->
 
                     <a href="{{ url('signout') }}" class="dropdown-item notify-item"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -34,22 +34,30 @@
               <span class="logo-lg">
 <img src="{{asset('assets/images/logo22.PNG')}}" alt="" style="width:68px;height:68px;">
               </span>
-                    <img class="logo-sm" style="width:68px;height:68px;" src="{{asset('assets/images/logo22.PNG')}}" alt=""></a></li>
+                    <img class="logo-sm" style="width:68px;height:68px;" src="{{asset('assets/images/logo22.PNG')}}"
+                         alt=""></a></li>
             <li class="float-left"><a class="button-menu-mobile open-left navbar-toggle">
                     <div class="lines text-white"><span></span> <span></span> <span></span></div>
                 </a></li>
             <div class="mobile-display">
-            <li class="float-left mt-1 p-2 clearfix text-white ">
-                <a href="#"  class="text-white"><img src="{{asset('assets/images/call.png')}}" class="mr-2" alt="" height="28">+254722300245</a>
-&nbsp;           <a href="#" class="text-white"><img src="{{asset('assets/images/mail.png')}}" class="mr-2" alt="" height="28">info@achrp.org</a>
-            </li>
-            <li class="text-center mt-1 p-2 ">
-                <a href="https://t.me/joinchat/Ek8Hkz60CaalKjyAUMR8HA" ><img src="{{asset('assets/images/telegram.png')}}" class="mr-2" alt="" height="28"></a>
-                <a href="https://www.facebook.com/achrp" ><img src="{{asset('assets/images/facebook.png')}}" class="mr-2" alt="" height="28"></a>
-                <a href="https://twitter.com/academyofchrp" ><img src="{{asset('assets/images/twitter.png')}}" class="mr-2" alt="" height="28"></a>
-                <a href="https://www.instagram.com/academyofchrp/" ><img src="{{asset('assets/images/instagram.png')}}" class="mr-2" alt="" height="28"></a>
-                <a href="http://www.pinterest.com/academyofchrp" ><img src="{{asset('assets/images/pinterest.png')}}" class="mr-2" alt="" height="28"></a>
-            </li>
+                <li class="float-left mt-1 p-2 clearfix text-white ">
+                    <a href="#" class="text-white"><img src="{{asset('assets/images/call.png')}}" class="mr-2" alt=""
+                                                        height="28">+254722300245</a>
+                    &nbsp; <a href="#" class="text-white"><img src="{{asset('assets/images/mail.png')}}" class="mr-2"
+                                                               alt="" height="28">info@achrp.org</a>
+                </li>
+                <li class="text-center mt-1 p-2 ">
+                    <a href="https://t.me/joinchat/Ek8Hkz60CaalKjyAUMR8HA"><img
+                            src="{{asset('assets/images/telegram.png')}}" class="mr-2" alt="" height="28"></a>
+                    <a href="https://www.facebook.com/achrp"><img src="{{asset('assets/images/facebook.png')}}"
+                                                                  class="mr-2" alt="" height="28"></a>
+                    <a href="https://twitter.com/academyofchrp"><img src="{{asset('assets/images/twitter.png')}}"
+                                                                     class="mr-2" alt="" height="28"></a>
+                    <a href="https://www.instagram.com/academyofchrp/"><img
+                            src="{{asset('assets/images/instagram.png')}}" class="mr-2" alt="" height="28"></a>
+                    <a href="http://www.pinterest.com/academyofchrp"><img src="{{asset('assets/images/pinterest.png')}}"
+                                                                          class="mr-2" alt="" height="28"></a>
+                </li>
             </div>
 
         </ul>

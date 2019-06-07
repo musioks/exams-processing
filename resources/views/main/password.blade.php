@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('crumbs')
-    <li class="breadcrumb-item"><a href="{{url('/admin')}}">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="{{url('/main')}}">Dashboard</a></li>
     <li class="breadcrumb-item active">Change Password</li>
 @endsection
 @section('title')
@@ -11,7 +11,7 @@
         <div class="col-lg-8  offset-sm-2">
             <div class="card-box">
                 <h4 class="header-title m-t-0 border-bottom p-2">Update Password</h4>
-                <form role="form" action="{{ url('/admin/password') }}" method="post" enctype="multipart/form-data">
+                <form role="form" action="{{ url('/main/password') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label  for="form-username">Current Password</label>

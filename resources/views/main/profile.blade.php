@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('crumbs')
-    <li class="breadcrumb-item"><a href="{{url('/admin')}}">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="{{url('/main')}}">Dashboard</a></li>
     <li class="breadcrumb-item active">Profile</li>
 @endsection
 @section('title')
@@ -11,7 +11,7 @@
         <div class="col-lg-8  offset-sm-2">
             <div class="card-box">
                 <h4 class="header-title m-t-0 border-bottom p-2">View Profile</h4>
-                <form role="form" action="{{ url('/admin/profile') }}" method="post" enctype="multipart/form-data">
+                <form role="form" action="{{ url('/main/profile') }}" method="post" enctype="multipart/form-data">
                     <div class="form-group text-center">
                         @if(Auth::user()->avatar=='')
                             <img src="{{asset('/assets/images/users/user.jpg')}}" alt="user" class="img-rounded" style="height: 150px; width: 200px;">

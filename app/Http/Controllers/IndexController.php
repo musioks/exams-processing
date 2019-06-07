@@ -25,7 +25,7 @@ class IndexController extends Controller
         $email = $request->email;
         $password = $request->password;
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            return redirect('/admin');
+            return redirect('/main');
         }
         return redirect()->back()->with('error', 'The system could not log you in, try again!');
     }
