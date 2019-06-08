@@ -8,4 +8,8 @@ class Intake extends Model
 {
     //
     protected $guarded = [];
+
+    public function batches(){
+        return $this->belongsToMany(Batch::class);
+    }
 }
