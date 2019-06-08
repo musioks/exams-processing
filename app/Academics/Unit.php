@@ -24,4 +24,9 @@ class Unit extends Model
     {
         return $this->belongsToMany(Student::class);
     }
+
+    public function exams()
+    {
+        return $this->belongsTo(Exams::class, 'unit_id');
+    }
 }

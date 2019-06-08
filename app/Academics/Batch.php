@@ -44,5 +44,9 @@ class Batch extends Model
     {
         return $this->belongsTo(Year_of_study::class, 'year_of_study_id');
     }
+    public function exams()
+    {
+        return $this->belongsTo(Exams::class, 'batch_id');
+    }
 
 }
