@@ -8,4 +8,16 @@ class Course extends Model
 {
     //
     protected $guarded = [];
+
+    public function batches()
+    {
+        return $this->hasMany(Batch::class, 'course_id');
+    }
+
+    public function units()
+    {
+        return $this->belongsToMany(Unit::class);
+    }
+
+
 }
