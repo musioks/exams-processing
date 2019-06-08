@@ -29,4 +29,5 @@ class Batch extends Model
     {
         return $this->belongsToMany(Intake::class);
     }
+
 }
