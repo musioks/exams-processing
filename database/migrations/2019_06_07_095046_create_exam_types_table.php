@@ -16,7 +16,7 @@ class CreateExamTypesTable extends Migration
         Schema::create('exam_types', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->integer('frequency')->unsigned();
+            $table->unsignedInteger('frequency');
             $table->text('description');
             $table->timestamps();
         });

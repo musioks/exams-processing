@@ -15,7 +15,7 @@ class CreateYearOfStudiesTable extends Migration
     {
         Schema::create('year_of_studies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('year_number')->unique();
+            $table->unsignedInteger('year_number')->unique();
             $table->timestamps();
         });
     }

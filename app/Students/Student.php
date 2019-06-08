@@ -16,6 +16,10 @@ class Student extends Model
     {
         return "{$this->firstname} {$this->middlename} {$this->surname}";
     }
+    public function getJoinedAtAttribute()
+    {
+        return date('d-M-Y', strtotime($this->created_at));
+    }
 
     public function user()
     {
@@ -41,4 +45,5 @@ class Student extends Model
     {
         return $this->belongsTo(Student_status::class);
     }
+
 }

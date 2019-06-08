@@ -15,9 +15,10 @@ class CreateGradingSystemsTable extends Migration
     {
         Schema::create('grading_systems', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('min_score');
-            $table->integer('max_score');
-            $table->string('remark');
+            $table->string('name')->unique();
+            $table->unsignedInteger('min_score');
+            $table->unsignedInteger('max_score');
+            $table->string('comment');
             $table->timestamps();
         });
     }
