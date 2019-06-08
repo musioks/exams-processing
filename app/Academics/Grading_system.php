@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Grading_system extends Model
 {
-    //
+    protected $guarded = [];
 }
