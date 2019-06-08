@@ -29,4 +29,20 @@ class Batch extends Model
     {
         return $this->belongsToMany(Intake::class);
     }
+
+    public function academic_year()
+    {
+        return $this->belongsTo(Academic_year::class, 'academic_year_id');
+    }
+
+    public function term()
+    {
+        return $this->belongsTo(Semester_term::class, 'term_id');
+    }
+
+    public function year_of_study()
+    {
+        return $this->belongsTo(Year_of_study::class, 'year_of_study_id');
+    }
+
 }
