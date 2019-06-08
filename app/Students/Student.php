@@ -4,6 +4,7 @@ namespace App\Students;
 
 use App\Academics\Batch;
 use App\Academics\Course;
+use App\Academics\Scores;
 use App\Academics\Unit;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
@@ -44,6 +45,10 @@ class Student extends Model
     public function student_status()
     {
         return $this->belongsTo(Student_status::class);
+    }
+    public function scores()
+    {
+        return $this->belongsTo(Scores::class, 'student_id');
     }
 
 }

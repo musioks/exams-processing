@@ -21,4 +21,5 @@ class Exams extends Model
     {
         return $this->belongsTo(Unit::class, 'unit_id');
     }
+
 }
