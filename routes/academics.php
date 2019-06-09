@@ -16,6 +16,10 @@ Route::namespace('Academics')->prefix('academics')->middleware('auth')->group(fu
     Route::post('/courses', 'CourseController@store');
     Route::patch('/courses/update/{course}', 'CourseController@update');
     Route::get('/courses/delete/{course}', 'CourseController@destroy');
+    //==============Course Units=========
+    Route::get('/courses/{course}/units', 'CourseController@units');
+    Route::post('/courses/{course}/units', 'CourseController@assignUnit');
+    Route::get('/courses/{course}/units/detach/{unit_id}', 'CourseController@detachUnit');
 });
 
 // ========== Manage Units =================
@@ -32,6 +36,10 @@ Route::namespace('Academics')->prefix('academics')->middleware('auth')->group(fu
     Route::post('/batches', 'BatchController@store');
     Route::patch('/batches/update/{batch}', 'BatchController@update');
     Route::get('/batches/delete/{batch}', 'BatchController@destroy');
+    //==============Batch Units=========
+    Route::get('/batches/{batch}/units', 'BatchController@units');
+    Route::post('/batches/{batch}/units', 'BatchController@assignUnit');
+    Route::get('/batches/{batch}/units/detach/{unit_id}', 'BatchController@detachUnit');
 });
 
 // ========== Manage Intakes =================

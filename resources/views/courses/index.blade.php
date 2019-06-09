@@ -93,6 +93,7 @@
                                        data-target="#edit-modal-{{ $course->id }}">View</a>
                                     <a href="#" class="btn btn-danger btn-sm" data-toggle="modal"
                                        data-target="#delete-modal-{{ $course->id }}"><i class="fa fa-trash-o"></i></a>
+                                    <a href="{{ url('/academics/courses/'.$course->id.'/units') }}" class="btn btn-primary btn-sm"><i class=" fa fa-fw fa-eye "></i>View Units</a>
                                 </td>
 
                                 <!-- Update Modal -->

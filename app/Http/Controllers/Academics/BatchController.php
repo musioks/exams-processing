@@ -6,6 +6,7 @@ use App\Academics\Academic_year;
 use App\Academics\Batch;
 use App\Academics\Course;
 use App\Academics\Semester_term;
+use App\Academics\Unit;
 use App\Academics\Year_of_study;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -94,6 +95,41 @@ class BatchController extends Controller
             return redirect()->back()->with('success', 'Batch has been deleted!');
         } catch (\Exception $exception) {
             return redirect()->back()->with('error', 'Batch could not be deleted, please try again!');
+        }
+    }
+    /**
+     * Start on Assigning Units
+     * @param \App\Academics\Batch $batch
+     * @return \Illuminate\Http\Response
+     */
+    public function units(Batch $batch)
+    {
+        $course=Course::find($batch->course_id);
+        $batch_units=$batch->units()->get();
+        $ids = $batch_units->pluck('id');
+        $units = $course->units()->whereNotIn('id', $ids)->get();
+        //dd($batches);
+        return view('batches.units', compact('units', 'batch_units', 'batch'));
+    }
+
+    public function assignUnit(Request $request, Batch $batch)
+    {
+        //dd($request->all());
+        try {
+            $batch->units()->attach($request->unit_id);
+            return redirect()->back()->with('success', 'Unit(s) have been attached to the batch!');
+        } catch (\Exception $exception) {
+            return redirect()->back()->with('error', 'Unit(s) could not be attached, please try again!');
+        }
+    }
+
+    public function detachUnit(Batch $batch, $unit_id)
+    {
+        try {
+            $batch->units()->detach($unit_id);
+            return redirect()->back()->with('success', 'Unit has been removed from batch!');
+        } catch (\Exception $exception) {
+            return redirect()->back()->with('error', 'unit could not be removed, please try again!');
         }
     }
 }

@@ -138,11 +138,9 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col"> Name</th>
-                            <th scope="col"> Course</th>
+                            <th scope="col"> Course code</th>
                             <th scope="col">Academic Year</th>
-                            <th scope="col"> Start Date</th>
-                            <th scope="col"> End Date</th>
-                            <th scope="col">Year of Study</th>
+                            <th scope="col">Duration</th>
                             <th scope="col">Semester</th>
                             <th scope="col"></th>
                         </tr>
@@ -152,17 +150,17 @@
                             <tr>
                                 <td>{{$i+1}}</td>
                                 <td>{{$batch->name ?? ''}}</td>
-                                <td>{{$batch->course->name ?? ''}}</td>
+                                <td><a href="{{url('/academics/courses')}}">{{$batch->course->course_code ?? ''}}</a></td>
                                 <td>{{$batch->academic_year->name ?? ''}}</td>
-                                <td>{{$batch->start_date ?? '-'}}</td>
-                                <td>{{$batch->end_date ?? '-'}}</td>
-                                <td>{{"Year"." ".$batch->year_of_study->year_number ?? '-'}}</td>
-                                <td>{{$batch->term->name ?? '-'}}</td>
+                                <td>{{$batch->start_date ?? '-'}}-{{$batch->end_date ?? '-'}}</td>
+                                <td>{{"Year"." ".$batch->year_of_study->year_number ?? '-'}} {{$batch->term->name ?? '-'}}</td>
                                 <td>
                                     <a href="#" class="btn btn-success btn-sm" data-toggle="modal"
                                        data-target="#edit-modal-{{ $batch->id }}">View</a>
                                     <a href="#" class="btn btn-danger btn-sm" data-toggle="modal"
                                        data-target="#delete-modal-{{ $batch->id }}"><i class="fa fa-trash-o"></i></a>
+                                    <a href="{{ url('/academics/batches/'.$batch->id.'/units') }}" class="btn btn-primary btn-sm"><i class=" fa fa-fw fa-eye "></i>View Units</a>
+
                                 </td>
 
                                 <!-- Update Modal -->

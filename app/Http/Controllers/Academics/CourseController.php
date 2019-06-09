@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Academics;
 
 use App\Academics\Course;
+use App\Academics\Unit;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -75,6 +76,41 @@ class CourseController extends Controller
             return redirect()->back()->with('success', 'Course has been deleted!');
         } catch (\Exception $exception) {
             return redirect()->back()->with('error', 'Course could not be deleted, please try again!');
+        }
+    }
+
+    /**
+     * Start on Assigning Units
+     * @param \App\Academics\Course $course
+     * @return \Illuminate\Http\Response
+     */
+    public function units(Course $course)
+    {
+        $course_units = $course->units()->get();
+        $ids = $course_units->pluck('id');
+        $units = Unit::whereNotIn('id', $ids)->get();
+        //dd($batches);
+        return view('courses.units', compact('units', 'course_units', 'course'));
+    }
+
+    public function assignUnit(Request $request, Course $course)
+    {
+        //dd($request->all());
+        try {
+            $course->units()->attach($request->unit_id);
+            return redirect()->back()->with('success', 'Unit(s) have been attached to the course!');
+        } catch (\Exception $exception) {
+            return redirect()->back()->with('error', 'Unit(s) could not be attached, please try again!');
+        }
+    }
+
+    public function detachUnit(Course $course, $unit_id)
+    {
+        try {
+            $course->units()->detach($unit_id);
+            return redirect()->back()->with('success', 'Unit has been removed from course!');
+        } catch (\Exception $exception) {
+            return redirect()->back()->with('error', 'unit could not be removed, please try again!');
         }
     }
 }

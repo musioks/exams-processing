@@ -82,4 +82,5 @@ class UnitController extends Controller
             return redirect()->back()->with('error', 'Unit could not be deleted, please try again!');
         }
     }
+
 }
