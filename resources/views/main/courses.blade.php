@@ -113,15 +113,14 @@
 
                             <!-- ====================Delete Modal===========================  -->
                             <div id="delete-modal-{{ $course->id }}" class="modal fade" tabindex="-1"
-                                 role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-                                 style="display: none;">
+                                 role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
                                             <h5>Are you sure you want to delete this course?</h5>
                                         </div>
                                         <div class="modal-footer">
-                                            <a href="{{ url('/admin/courses/delete/'.$course->id) }}"
+                                            <a href="{{ url('/academics/courses/delete/'.$course->id) }}"
                                                class="btn btn-success float-left">Okay</a>
                                             <button type="button" class="btn btn-danger"
                                                     data-dismiss="modal">Cancel
@@ -138,7 +137,7 @@
 
                     </tbody>
                 </table>
-                </div><!--end reponsive table-->
+                </div><!--end responsive table-->
 
             </div>
         </div>
