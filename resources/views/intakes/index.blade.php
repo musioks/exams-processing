@@ -95,14 +95,14 @@
                         @forelse($intakes as $i=>$intake)
                             <tr>
                                 <td>{{$i+1}}</td>
-                                <td>{{ $intake->name }}</td>
+                                <td>{{ $intake->name}}</td>
                                 <td>{{ $intake->start_date }}</td>
                                 <td>{{ $intake->end_date }}</td>
                                 <td>{{ $intake->cutoff_date }}</td>
                                 <td>
                                     <a href="" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal-{{ $intake->id }}"><i class=" fa fa-fw fa-trash"></i></a>
                                     <a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit-modal-{{ $intake->id }}"><i class=" fa fa-fw fa-edit "></i></a>
-                                    <a href="{{ url('/academics/advertise-batch/'.$intake->id) }}" class="btn btn-primary btn-sm"><i class=" fa fa-fw fa-eye "></i>View Batches</a>
+                                    <a href="{{ url('/academics/intakes/'.$intake->id.'/batches') }}" class="btn btn-primary btn-sm"><i class=" fa fa-fw fa-eye "></i>View Batches</a>
                                 </td>
 
                                 <!-- Update Modal -->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Academics;
 
+use App\Academics\Batch;
 use App\Academics\Intake;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,7 +23,7 @@ class IntakeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -45,8 +46,8 @@ class IntakeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Academics\Intake  $intake
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Academics\Intake $intake
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Intake $intake)
@@ -70,7 +71,7 @@ class IntakeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Academics\Intake  $intake
+     * @param \App\Academics\Intake $intake
      * @return \Illuminate\Http\Response
      */
     public function destroy(Intake $intake)
@@ -80,6 +81,43 @@ class IntakeController extends Controller
             return redirect()->back()->with('success', 'Intake has been deleted!');
         } catch (\Exception $exception) {
             return redirect()->back()->with('error', 'Intake could not be deleted, please try again!');
+        }
+    }
+
+    /**
+     * Start on Intakes
+     * @param \App\Academics\Intake $intake
+     * @return \Illuminate\Http\Response
+     */
+    public function batches(Intake $intake)
+    {
+        $intake_batches = $intake->batches()->get();
+        $ids=$intake_batches->pluck('id');
+        $batches=Batch::whereNotIn('id',$ids)->get();
+        //dd($batches);
+        return view('intakes.batches', compact('batches','intake_batches','intake'));
+    }
+
+    public function assignBatch(Request $request, Intake $intake)
+    {
+        //dd($request->all());
+        try{
+            $intake->batches()->attach($request->batch_id);
+            return redirect()->back()->with('success', 'Batch(es) have been attached to the intake!');
+        }
+        catch (\Exception $exception){
+            return redirect()->back()->with('error', 'Batches could not be attached, please try again!');
+        }
+    }
+
+    public function detachBatch(Intake $intake,$batch_id)
+    {
+        try{
+            $intake->batches()->detach($batch_id);
+            return redirect()->back()->with('success', 'Batch has been removed from the intake!');
+        }
+        catch (\Exception $exception){
+            return redirect()->back()->with('error', 'Batches could not be detached, please try again!');
         }
     }
 }

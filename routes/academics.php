@@ -40,4 +40,8 @@ Route::namespace('Academics')->prefix('academics')->middleware('auth')->group(fu
     Route::post('/intakes', 'IntakeController@store');
     Route::patch('/intakes/update/{intake}', 'IntakeController@update');
     Route::get('/intakes/delete/{intake}', 'IntakeController@destroy');
+    //==============Intake Batches=========
+    Route::get('/intakes/{intake}/batches', 'IntakeController@batches');
+    Route::post('/intakes/{intake}/batches', 'IntakeController@assignBatch');
+    Route::get('/intakes/{intake}/batches/detach/{batch_id}', 'IntakeController@detachBatch');
 });
