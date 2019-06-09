@@ -12,14 +12,14 @@
                 <li><a href="{{url('/students')}}" class="{{Request::is('students') ? 'active' :''}}"><i class="mdi mdi-account-multiple"></i> <span>Manage Students</span></a></li>
                 <li><a href="{{url('/lecturers')}}" class="{{Request::is('lecturers') ? 'active' :''}}"><i class="mdi mdi-account-multiple"></i> <span>Manage Lecturers</span></a></li>
                 @endrole
+
                 @role('STUDENT')
-                <li class="menu-title">Student</li>
-                <li><a href="" class=""><i class="mdi mdi-pencil"></i> <span>My Exams</span></a></li>
-                <li><a href="" class=""><i class="mdi mdi-book-open"></i> <span>My Units</span></a></li>
+                <li><a href="{{url('/portal/student/units')}}" class="{{Request::is('portal/student/units') ? 'active' :''}}"><i class="mdi mdi-book-open"></i> <span>My Units</span></a></li>
+                <li><a href="{{url('/portal/student/exams')}}" class="{{Request::is('portal/student/exams') ? 'active' :''}}"><i class="mdi mdi-pencil"></i> <span>My Exams</span></a></li>
                 <li><a href="" class=""><i class="mdi mdi-account-multiple"></i> <span>Exam Results</span></a></li>
                 @endrole
+
                 @role('LECTURER')
-                <li class="menu-title">Lecturer</li>
                 <li><a href="{{url('/portal/lecturer/units')}}" class="{{Request::is('portal/lecturer/units') ? 'active' :''}}"><i class="mdi mdi-book-open"></i> <span>My Units</span></a></li>
                 <li><a href="{{url('/portal/lecturer/exams')}}" class="{{Request::is('portal/lecturer/exams') ? 'active' :''}}"><i class="mdi mdi-pencil"></i> <span>My Exams</span></a></li>
                 <li><a href="" class=""><i class="mdi mdi-account-multiple"></i> <span>Exam Results</span></a></li>
