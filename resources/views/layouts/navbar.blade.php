@@ -42,22 +42,11 @@
             <div class="mobile-display">
                 <li class="float-left mt-1 p-2 clearfix text-white ">
                     <a href="#" class="text-white"><img src="{{asset('assets/images/call.png')}}" class="mr-2" alt=""
-                                                        height="28">+254722300245</a>
+                                                        height="28">+254700113890</a>
                     &nbsp; <a href="#" class="text-white"><img src="{{asset('assets/images/mail.png')}}" class="mr-2"
-                                                               alt="" height="28">info@achrp.org</a>
+                                                               alt="" height="28">feedback@exams-system.io</a>
                 </li>
-                <li class="text-center mt-1 p-2 ">
-                    <a href="https://t.me/joinchat/Ek8Hkz60CaalKjyAUMR8HA"><img
-                            src="{{asset('assets/images/telegram.png')}}" class="mr-2" alt="" height="28"></a>
-                    <a href="https://www.facebook.com/achrp"><img src="{{asset('assets/images/facebook.png')}}"
-                                                                  class="mr-2" alt="" height="28"></a>
-                    <a href="https://twitter.com/academyofchrp"><img src="{{asset('assets/images/twitter.png')}}"
-                                                                     class="mr-2" alt="" height="28"></a>
-                    <a href="https://www.instagram.com/academyofchrp/"><img
-                            src="{{asset('assets/images/instagram.png')}}" class="mr-2" alt="" height="28"></a>
-                    <a href="http://www.pinterest.com/academyofchrp"><img src="{{asset('assets/images/pinterest.png')}}"
-                                                                          class="mr-2" alt="" height="28"></a>
-                </li>
+
             </div>
 
         </ul>
