@@ -43,7 +43,7 @@
                 <li class="float-left mt-1 p-2 clearfix text-white ">
                     <a href="#" class="text-white"><img src="{{asset('assets/images/call.png')}}" class="mr-2" alt=""
                                                         height="28">+254700113890</a>
-                    &nbsp; <a href="#" class="text-white"><img src="{{asset('assets/images/mail.png')}}" class="mr-2"
+                    &nbsp;<a href="#" class="text-white"><img src="{{asset('assets/images/mail.png')}}" class="mr-2"
                                                                alt="" height="28">feedback@exams-system.io</a>
                 </li>
 
