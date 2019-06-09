@@ -25,35 +25,35 @@ Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetFor
 
 /** ===========================Dashboard Routes=============================*/
 Route::namespace('Main')->prefix('main')->middleware('auth')->group(function () {
-    Route::get('/profile', 'SettingsController@profile');
-    Route::post('/profile', 'SettingsController@updateProfile');
-    Route::get('/password', 'SettingsController@getPassword');
-    Route::post('/password', 'SettingsController@changePassword');
+    Route::get('/profile', 'SettingsController@profile')->middleware('role:USER');
+    Route::post('/profile', 'SettingsController@updateProfile')->middleware('role:USER');
+    Route::get('/password', 'SettingsController@getPassword')->middleware('role:USER');
+    Route::post('/password', 'SettingsController@changePassword')->middleware('role:USER');
     Route::get('/', 'IndexController@index');
 });
 
 // ==========  Lecturers =================
 Route::namespace('Lecturers')->prefix('lecturers')->middleware('auth')->group(function () {
-    Route::get('/', 'IndexController@index');
-    Route::post('/', 'IndexController@store');
-    Route::patch('/update/{lecturer}', 'IndexController@update');
-    Route::get('/delete/{lecturer}', 'IndexController@destroy');
+    Route::get('/', 'IndexController@index')->middleware('role:ADMIN');
+    Route::post('/', 'IndexController@store')->middleware('role:ADMIN');
+    Route::patch('/update/{lecturer}', 'IndexController@update')->middleware('role:ADMIN');
+    Route::get('/delete/{lecturer}', 'IndexController@destroy')->middleware('role:ADMIN');
     //==============Lecturer Units=========
-    Route::get('/{lecturer}/units', 'IndexController@units');
-    Route::post('/{lecturer}/units', 'IndexController@assignUnit');
-    Route::get('/{lecturer}/units/detach/{unit_id}', 'IndexController@detachUnit');
+    Route::get('/{lecturer}/units', 'IndexController@units')->middleware('role:ADMIN');
+    Route::post('/{lecturer}/units', 'IndexController@assignUnit')->middleware('role:ADMIN');
+    Route::get('/{lecturer}/units/detach/{unit_id}', 'IndexController@detachUnit')->middleware('role:ADMIN');
 });
 
 // ========== students =================
 Route::namespace('Students')->prefix('students')->middleware('auth')->group(function () {
-    Route::get('/', 'IndexController@index');
-    Route::post('/', 'IndexController@store');
-    Route::patch('/update/{student}', 'IndexController@update');
-    Route::get('/delete/{student}', 'IndexController@destroy');
+    Route::get('/', 'IndexController@index')->middleware('role:ADMIN');
+    Route::post('/', 'IndexController@store')->middleware('role:ADMIN');
+    Route::patch('/update/{student}', 'IndexController@update')->middleware('role:ADMIN');
+    Route::get('/delete/{student}', 'IndexController@destroy')->middleware('role:ADMIN');
 
     //==============Student Units=========
-    Route::get('/{student}/units', 'IndexController@units');
-    Route::post('/{student}/units', 'IndexController@assignUnit');
-    Route::get('/{student}/units/detach/{unit_id}', 'IndexController@detachUnit');
+    Route::get('/{student}/units', 'IndexController@units')->middleware('role:ADMIN');
+    Route::post('/{student}/units', 'IndexController@assignUnit')->middleware('role:ADMIN');
+    Route::get('/{student}/units/detach/{unit_id}', 'IndexController@detachUnit')->middleware('role:ADMIN');
 });
 

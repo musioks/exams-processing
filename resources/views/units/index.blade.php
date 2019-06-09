@@ -84,6 +84,8 @@
                                        data-target="#edit-modal-{{ $unit->id }}">View</a>
                                     <a href="#" class="btn btn-danger btn-sm" data-toggle="modal"
                                        data-target="#delete-modal-{{ $unit->id }}"><i class="fa fa-trash-o"></i></a>
+                                    <a href="{{ url('/academics/units/'.$unit->id.'/exams') }}"
+                                                                           class="btn btn-primary btn-sm"><i class=" fa fa-fw fa-eye "></i>View Exams</a>
                                 </td>
 
                                 <!-- Update Modal -->

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Lecturers;
 
-use App\Academics\Course;
 use App\Academics\Unit;
 use App\Lecturers\Lecturer;
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -53,6 +53,9 @@ class IndexController extends Controller
                 'admin' => 0,
                 'password' => bcrypt('123456'),
             ]);
+            $lecturer = Role::where('name', 'LECTURER')->first();
+            $role_user = Role::where('name', 'USER')->first();
+            $user->attachRoles([$lecturer->id, $role_user->id]);
             $employee_no = "EPS/2019/" . rand(1080, 10000);
             $validated['employee_number'] = $employee_no;
             $validated['user_id']=$user->id;

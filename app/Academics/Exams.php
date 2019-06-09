@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Exams extends Model
 {
+    protected $guarded=[];
 
     public function exam_type()
     {

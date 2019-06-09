@@ -28,8 +28,6 @@ class CreateStudentsTable extends Migration
             $table->string('admission_no')->nullable();
             $table->string('photo')->nullable();
             $table->date('admission_date')->nullable();
-            $table->date('due_date')->nullable();
-            $table->integer('set_fee')->nullable();
             $table->unsignedBigInteger('status_id');
             $table->boolean('login_status')->default(0);
             $table->foreign('user_id')
