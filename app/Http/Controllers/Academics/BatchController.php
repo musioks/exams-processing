@@ -6,7 +6,6 @@ use App\Academics\Academic_year;
 use App\Academics\Batch;
 use App\Academics\Course;
 use App\Academics\Semester_term;
-use App\Academics\Unit;
 use App\Academics\Year_of_study;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

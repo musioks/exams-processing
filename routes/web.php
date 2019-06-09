@@ -30,5 +30,30 @@ Route::namespace('Main')->prefix('main')->middleware('auth')->group(function () 
     Route::get('/password', 'SettingsController@getPassword');
     Route::post('/password', 'SettingsController@changePassword');
     Route::get('/', 'IndexController@index');
+});
 
-    });
+// ==========  Lecturers =================
+Route::namespace('Lecturers')->prefix('lecturers')->middleware('auth')->group(function () {
+    Route::get('/', 'IndexController@index');
+    Route::post('/', 'IndexController@store');
+    Route::patch('/update/{lecturer}', 'IndexController@update');
+    Route::get('/delete/{lecturer}', 'IndexController@destroy');
+    //==============Lecturer Units=========
+    Route::get('/{lecturer}/units', 'IndexController@units');
+    Route::post('/{lecturer}/units', 'IndexController@assignUnit');
+    Route::get('/{lecturer}/units/detach/{unit_id}', 'IndexController@detachUnit');
+});
+
+// ========== students =================
+Route::namespace('Students')->prefix('students')->middleware('auth')->group(function () {
+    Route::get('/', 'IndexController@index');
+    Route::post('/', 'IndexController@store');
+    Route::patch('/update/{student}', 'IndexController@update');
+    Route::get('/delete/{student}', 'IndexController@destroy');
+
+    //==============Student Units=========
+    Route::get('/{student}/units', 'IndexController@units');
+    Route::post('/{student}/units', 'IndexController@assignUnit');
+    Route::get('/{student}/units/detach/{unit_id}', 'IndexController@detachUnit');
+});
+
