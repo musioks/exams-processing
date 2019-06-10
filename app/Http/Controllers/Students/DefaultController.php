@@ -6,6 +6,7 @@ use App\Students\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class DefaultController extends Controller
 {
@@ -38,5 +39,24 @@ class DefaultController extends Controller
         $student->units()->attach($request->unit_id);
         return redirect()->back()->with('success', 'Unit(s) have been registered!');
 
+    }
+    public function results()
+    {
+        $student = Student::find(Auth::user()->student->id);
+        $results = $student->scores()->get();
+        //dd($results);
+        return view('portals.student.results', compact('results','student'));
+    }
+    public function slip()
+    {
+        $student = Student::find(Auth::user()->student->id);
+        $results = $student->scores()->get();
+        $pdf = PDF::loadView('portals.student.slip',
+            [
+                'results' => $results,
+                'student' => $student,
+            ]
+        )->setPaper('a4', 'landscape');
+        return $pdf->stream("Result_slip_{$student->admission_no}.pdf");
     }
 }

@@ -16,7 +16,7 @@
                 @role('STUDENT')
                 <li><a href="{{url('/portal/student/units')}}" class="{{Request::is('portal/student/units') ? 'active' :''}}"><i class="mdi mdi-book-open"></i> <span>My Units</span></a></li>
                 <li><a href="{{url('/portal/student/exams')}}" class="{{Request::is('portal/student/exams') ? 'active' :''}}"><i class="mdi mdi-pencil"></i> <span>My Exams</span></a></li>
-                <li><a href="" class=""><i class="mdi mdi-account-multiple"></i> <span>Exam Results</span></a></li>
+                <li><a href="{{url('/portal/student/results')}}" class="{{Request::is('portal/student/results') ? 'active' :''}}"><i class="mdi mdi-account-multiple"></i> <span>Exam Results</span></a></li>
                 @endrole
 
                 @role('LECTURER')

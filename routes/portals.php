@@ -19,5 +19,7 @@ Route::namespace('Students')->prefix('portal/student')->middleware('auth')->grou
     Route::post('/units/', 'DefaultController@register_units')->middleware('role:STUDENT');
     //==============Lecturer Units=========
     Route::get('/exams', 'DefaultController@exams')->middleware('role:STUDENT');
+    Route::get('/results', 'DefaultController@results')->middleware('role:STUDENT');
+    Route::get('/slip', 'DefaultController@slip')->middleware('role:STUDENT');
 
 });
