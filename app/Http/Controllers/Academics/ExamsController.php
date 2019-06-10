@@ -18,7 +18,7 @@ class ExamsController extends Controller
      */
     public function index(Unit $unit)
     {
-        $exams=Exams::latest()->get();
+        $exams=Exams::where('unit_id',$unit->id)->latest()->get();
         $batches=Batch::latest()->get();
         $exam_types=Exam_type::all();
         return view('units.exams',compact('unit','exams','batches','exam_types'));

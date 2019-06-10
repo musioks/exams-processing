@@ -15,7 +15,7 @@ class DefaultController extends Controller
         $my_units = $student->units()->get();
         $ids = $my_units->pluck('id');
         $batch = $student->batches()->first();
-       // dd($batch);
+        // dd($batch);
         $units = $batch->units()->whereNotIn('id', $ids)->get();
         // dd($units);
         return view('portals.student.units', compact('student', 'units', 'my_units'));
@@ -28,6 +28,15 @@ class DefaultController extends Controller
         $ids = $my_units->pluck('id');
         $batch = $student->batches()->first();
         $units = $batch->units()->whereNotIn('id', $ids)->get();
-        return view('portals.student.exams', compact('student', 'my_units','units'));
+        return view('portals.student.exams', compact('student', 'my_units', 'units'));
+    }
+
+    public function register_units(Request $request)
+    {
+       // dd($request->all());
+        $student = Student::find($request->student_id);
+        $student->units()->attach($request->unit_id);
+        return redirect()->back()->with('success', 'Unit(s) have been registered!');
+
     }
 }

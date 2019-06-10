@@ -5,7 +5,7 @@
     <li class="breadcrumb-item active">Units</li>
 @endsection
 @section('title')
-    Course Units
+    Lecturer Units
 @endsection
 @section('content')
     <div class="row">

@@ -22,7 +22,6 @@
                 @role('LECTURER')
                 <li><a href="{{url('/portal/lecturer/units')}}" class="{{Request::is('portal/lecturer/units') ? 'active' :''}}"><i class="mdi mdi-book-open"></i> <span>My Units</span></a></li>
                 <li><a href="{{url('/portal/lecturer/exams')}}" class="{{Request::is('portal/lecturer/exams') ? 'active' :''}}"><i class="mdi mdi-pencil"></i> <span>My Exams</span></a></li>
-                <li><a href="" class=""><i class="mdi mdi-account-multiple"></i> <span>Exam Results</span></a></li>
                 @endrole
 
             </ul>

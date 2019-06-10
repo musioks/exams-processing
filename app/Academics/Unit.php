@@ -27,6 +27,6 @@ class Unit extends Model
 
     public function exams()
     {
-        return $this->belongsTo(Exams::class, 'unit_id');
+        return $this->hasMany(Exams::class, 'unit_id');
     }
 }
